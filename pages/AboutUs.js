@@ -41,22 +41,22 @@ const AboutUs = ({ data_header }) => {
       >
         <img
           className="w-full "
-          src="https://rosemarydn.com/images/upper.png"
+          src="/images/upper.png"
         />
         <div className="leading-[ 22.5px] font-normal">
           <h5 className="text-center">
-            {data?.heading || "About School"}
+            {data?.heading}
             {/* About us */}
 
           </h5>
           <p className="mb-0">
-          About us
-U.K. Convent School is one of the oldest schools for both girls and boys managed by U.K. Convent Group. U.K. Convent Group is run by Mrs Salma Anwar. Our institution is recogniged by the Madhya Pradesh Board of education.We, U.K. Convent School, understand that each child is a distinct individual who needs to be nurtured in order to grow into a mature and responsible citizen. Our academic infrastructure along with a wide range of co-curricular activities help our students in the all round personality development. We have a strong team of motivated teachers who are always ready to accept challenges of developing the potential of each and every student. Keeping in view the ideas of democracy and our ancient culture, U.K. Convent strives to provide a system of education most suited to the needs of our society today. Stress on innovative methods of teaching , opportunities for shouldering responsibilities during school life, constant participation in sports and co-curricular activities lend meaning to the school life. Thus, the end product is the harmonious, all round developed personality of our students poised on the threshold of life.
+            About us
+            U.K. Convent School is one of the oldest schools for both girls and boys managed by U.K. Convent Group. U.K. Convent Group is run by Mrs Salma Anwar. Our institution is recogniged by the Madhya Pradesh Board of education.We, U.K. Convent School, understand that each child is a distinct individual who needs to be nurtured in order to grow into a mature and responsible citizen. Our academic infrastructure along with a wide range of co-curricular activities help our students in the all round personality development. We have a strong team of motivated teachers who are always ready to accept challenges of developing the potential of each and every student. Keeping in view the ideas of democracy and our ancient culture, U.K. Convent strives to provide a system of education most suited to the needs of our society today. Stress on innovative methods of teaching , opportunities for shouldering responsibilities during school life, constant participation in sports and co-curricular activities lend meaning to the school life. Thus, the end product is the harmonious, all round developed personality of our students poised on the threshold of life.
           </p>
         </div>
         <img
           className="w-full"
-          src="https://rosemarydn.com/images/under.png"
+          src="/images/lower.png"
         />
       </div>
     </Layout>
