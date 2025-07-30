@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
 import { base_url, school_name } from '../SimpleState/auth'
-
+import { RiArrowLeftDoubleFill ,RiArrowRightDoubleFill} from "react-icons/ri";
 const HomeEvents = () => {
     const [value, onChange] = useState(new Date()); //this is for Calendar
     const [data, setdata] = useState("")
@@ -18,6 +18,8 @@ const HomeEvents = () => {
         { title: "/images/image1.jpg ", description: 'Vivek Singh' ,percent:"89"},
         { title: " /images/image2.jpg", description: 'Aditya Jain' ,percent:"87"},
     ];
+
+      const carouselRef = useRef();
 
     const filteredData = [
         { id: 2, created_on: "2020-12-15T05:19:39+00:00", eventdate: "2020-12-23", title: "Books will be available on the specific date." },
@@ -102,7 +104,7 @@ const HomeEvents = () => {
             <div className="mx-3 w-full">
                 <h1 className="py-2 text-center text-[white] "><b> Topper (2019-2020)</b></h1>
 
-                <Carousel showThumbs={false} autoPlay={true} infiniteLoop={true}  >
+                <Carousel  ref={carouselRef} showThumbs={false} autoPlay={true} infiniteLoop={true} showArrows={false} >
                     {
                         data?.data?.data.map((item, index) => {
                             return <div className="carousel-inner" role="listbox" key={index} >
@@ -140,19 +142,20 @@ const HomeEvents = () => {
                     }
 
                 </Carousel>
-                    {/* <button
+                <div className='p-1 flex justify-between'>
+                <button
                         onClick={() => carouselRef.current?.decrement()}
-                        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white px-3 py-1 rounded"
+                        className="  bg-white text-gray px-2 py-1 rounded"
                     >
-                        Prev
-                    </button>
-                    <button
+                        <RiArrowLeftDoubleFill />
+                </button>
+                <button
                         onClick={() => carouselRef.current?.increment()}
-                        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white px-3 py-1 rounded"
+                        className="  bg-white text-gray px-2 py-1 rounded"
                     >
-                        Next
-                    </button> */}
-
+                        <RiArrowRightDoubleFill />
+                </button>
+                </div>
             </div>
         </div>
     )
