@@ -9,7 +9,7 @@ const Footer = ({header_data}) => {
         <div className="">
           <div className="flex flex-row ">
             <img
-            src={header_data?.data? header_data?.data[0]?.logo?.data?.full_url : "https://rosemarydn.com/images/logo.png"}
+            src={header_data?.data? header_data?.data[0]?.logo?.data?.full_url?.replace('http://', 'https://') : "https://rosemarydn.com/images/logo.png"}
               // src="https://rosemarydn.com/images/logo.png"
               className=" h-[5rem] w-[5rem]"
             />
@@ -110,11 +110,8 @@ const Footer = ({header_data}) => {
         <div className="md:mt-6">
           <h3 className="text-lg" >Important Links</h3>
           <ul className="">
-            <li className="">
-              <a
-                className=" text-[#e0d917]  flex flex-row items-center  hover:no-underline "
-                href="#"
-              >
+            <li className=" text-[#e0d917]  flex flex-row items-center  hover:no-underline ">
+              
                 <svg
                   width="3%"
                   className="svg-inline--fa fa-angle-double-right fa-w-14 ico "
@@ -132,17 +129,14 @@ const Footer = ({header_data}) => {
                   ></path>
                 </svg>
 
-                <a className="pl-1 text-lg text-white hover:no-underline " href="/">
+                <a className="pl-1 text-lg text-white hover:no-underline " href="/" >
 
                   Home
                 </a>
-              </a>
+    
             </li>
-            <li>
-              <a
-                className="flex flex-row items-center hover:no-underline"
-                href="#"
-              >
+            <li className="flex flex-row items-center hover:no-underline">
+              
                 <svg
                   width="3%"
                   className="svg-inline--fa  fa-angle-double-right fa-w-14 ico "
@@ -163,13 +157,10 @@ const Footer = ({header_data}) => {
         
                   contact us
                 </a>
-              </a>
+              
             </li>
-            <li>
-              <a  
-                className="flex flex-row items-center text-yellow-300 hover:no-underline "
-                href="#"
-              >
+            <li className="flex flex-row items-center text-yellow-300 hover:no-underline ">
+
                 <svg
                   width="3%"
                   className="svg-inline--fa fa-angle-double-right fa-w-14 ico"
@@ -190,13 +181,10 @@ const Footer = ({header_data}) => {
             
                   Gallery
                 </a>
-              </a>
+              
             </li>
-            <li>
-              <a
-                className="flex flex-row items-center text-yellow-300 hover:no-underline"
-                href="#"
-              >
+            <li className="flex flex-row items-center text-yellow-300 hover:no-underline">
+              
                 <svg
                   width="3%"
                   className="svg-inline--fa fa-angle-double-right fa-w-14 ico"
@@ -220,7 +208,7 @@ const Footer = ({header_data}) => {
 
                   Facilities
                 </a>
-              </a>
+             
             </li>
           </ul>
         </div>

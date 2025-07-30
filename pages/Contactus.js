@@ -13,7 +13,7 @@ const Contactus = ({data_header}) => {
         </div>
         <div className="mt-[15px] lg:mx-16 px-6     flex md:flex-row flex-col">
           <iframe className=" md:w-[600px] md:h-[450px] "
-            src= "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7334.70362566379!2d77.352261!3d23.193846!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6846ea47ca51e8a3!2sU.K%20CONVENT%20CO-ED%20SCHOOL%2C%20NEELBAD!5e0!3m2!1sen!2sin!4v1635158310076!5m2!1sen!2sin"
+            src= "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.3731769214664!2d77.3491389!3d23.193067000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c5ce70263bbad%3A0x6846ea47ca51e8a3!2sU.K%20CONVENT%20CO-ED%20SCHOOL%2C%20NEELBAD!5e0!3m2!1sen!2sin!4v1753867361224!5m2!1sen!2sin"
 
             style={{ border: "0" }}
             allowFullScreen=""
@@ -31,7 +31,7 @@ const Contactus = ({data_header}) => {
             {data_header?.data? data_header?.data[0]?.address : "Maitretech School Bhopal"}
               {/* Dwarka Nagar , Nisatpura , Bhopal-462010 Phone: 0755-2740018 */}
             </address>
-            <div>phone: {data_header?.data? data_header?.data[0]?.phone : "111111211"}</div>
+            <div><strong>phone: </strong>{data_header?.data? data_header?.data[0]?.phone : "111111211"}</div>
             <strong>Email:</strong>
             <address className="text-black">
               <a>

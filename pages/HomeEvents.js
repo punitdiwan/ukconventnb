@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
 import { base_url, school_name } from '../SimpleState/auth'
-
+import { RiArrowLeftDoubleFill ,RiArrowRightDoubleFill} from "react-icons/ri";
 const HomeEvents = () => {
     const [value, onChange] = useState(new Date()); //this is for Calendar
     const [data, setdata] = useState("")
@@ -15,10 +15,11 @@ const HomeEvents = () => {
     const get_school_name = school_name.use()
 
     const slides = [
-        { title: "/images/is3.jpg ", description: 'Name-1' },
-        { title: " /images/is5.jpg", description: 'Name-2' },
+        { title: "/images/image1.jpg ", description: 'Vivek Singh' ,percent:"89"},
+        { title: " /images/image2.jpg", description: 'Aditya Jain' ,percent:"87"},
     ];
 
+      const carouselRef = useRef();
 
     const filteredData = [
         { id: 2, created_on: "2020-12-15T05:19:39+00:00", eventdate: "2020-12-23", title: "Books will be available on the specific date." },
@@ -100,23 +101,23 @@ const HomeEvents = () => {
                 </div>
 
             </div>
-            <div className="mx-3">
+            <div className="mx-3 w-full">
                 <h1 className="py-2 text-center text-[white] "><b> Topper (2019-2020)</b></h1>
 
-                <Carousel showThumbs={false} autoPlay={true} infiniteLoop={true}   >
+                <Carousel  ref={carouselRef} showThumbs={false} autoPlay={true} infiniteLoop={true} showArrows={false} >
                     {
                         data?.data?.data.map((item, index) => {
                             return <div className="carousel-inner" role="listbox" key={index} >
                                 <div className='carousel ' role="listbox" style={{ marginTop: "15px" }}>
                                     <img
-                                        src={item?.photo?.data?.full_url}
+                                        src={item?.photo?.data?.full_url?.replace('http://', 'https://')}
                                         style={{ height: "250px", width: "100%", border: "1px solid #ccc" }}
                                         alt="sorry_no_img"
                                     />
                                      <h4 className="p-0 py-3 m-0 text-[white]"
                                         style={{ border: "1px solid #ccc" }}>{item.name}
                                         <br />
-                                        <h4>{item.percent}%</h4>
+                                        <span>{item.percent}%</span>
                                     </h4>
                                 </div>
                             </div>
@@ -130,15 +131,31 @@ const HomeEvents = () => {
                                         style={{ height: "250px", width: "100%" }}
                                         alt="sorry_no_img"
                                     />
-                                    <h4 className="p-0 py-3 m-0" style={{ border: "1px solid #ccc" }}>{slide.description}</h4>
+                                    <h4 className="p-0 py-3 m-0 text-white" style={{ border: "1px solid #ccc" }}>{slide.description}
+                                        <br />
+                                        <span>{slide.percent}%</span>
+                                    </h4>
+                                    
                                 </div>
                             </div>
                         })
                     }
 
                 </Carousel>
-
-
+                <div className='p-1 flex justify-between'>
+                <button
+                        onClick={() => carouselRef.current?.decrement()}
+                        className="  bg-white text-gray px-2 py-1 rounded"
+                    >
+                        <RiArrowLeftDoubleFill />
+                </button>
+                <button
+                        onClick={() => carouselRef.current?.increment()}
+                        className="  bg-white text-gray px-2 py-1 rounded"
+                    >
+                        <RiArrowRightDoubleFill />
+                </button>
+                </div>
             </div>
         </div>
     )
