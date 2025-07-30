@@ -17,7 +17,6 @@
     "react-ga4": "^2.1.0",
     "react-responsive-carousel": "^3.2.23",
     "react-slideshow-image": "^3.7.5",
-    "simple-react-lightbox": "^3.6.9-0",
     "simpler-state": "^1.2.2",
     "styled-components": "^5.3.11"
   },
