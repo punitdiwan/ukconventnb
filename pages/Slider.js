@@ -60,7 +60,7 @@ console.log("slider_data",slider_data)
             <div key={index}>
               <img
                 src={item?.image?.data?.full_url?.replace('http://', 'https://')}
-                className="w-full h-[230px] md:h-[400px] lg:h-[500px] object-cover"
+                className="w-full h-[230px] md:h-[400px] lg:h-[650px] object-cover bg-black"
                 alt="slider"
               />
             </div>
@@ -69,7 +69,7 @@ console.log("slider_data",slider_data)
             <div key={index}>
               <img
                 src={slide.title}
-                className="w-full h-[230px] md:h-[400px] lg:h-[500px] object-cover"
+                className="w-full h-[230px] md:h-[400px] lg:h-[500px] object-cover bg-black"
                 alt="slider"
               />
             </div>
