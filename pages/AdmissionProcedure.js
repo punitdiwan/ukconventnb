@@ -7,7 +7,7 @@ const AdmissionProcedure = ({ data_header }) => {
             <Layout header_data={data_header}>
                   <div className="w-full h-full bg-no-repeat bg-cover bg-Admission container-fluid  mt-10">
                          
-                        <h5 className="text-2xl font-medium text-center leading-2 pt-5 ">Rose Mary Hr. Sec. School:</h5>
+                        <h5 className="text-2xl font-medium text-center leading-2 pt-5 ">UK Convent Co-Ed Hr. Sec. School:</h5>
                         <div className="  mt-3 ml-5 mr-2 px-4 md:px-28 ">
                               <b className="text-xl font-bold leading-2">Registration</b>
                               <p className="mb-0 text-xl font-normal leading-2">

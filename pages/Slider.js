@@ -9,7 +9,7 @@ const Slider = ({ slider_data }) => {
     { title: "/images/is15.jpg ", description: 'Lorem ipsum' },
     { title: "/images/sd2.jpg", description: 'Lorem ipsum' },
   ];
-console.log("slider_data",slider_data)
+// console.log("slider_data",slider_data)
   const sortedSlides = slider_data?.data
     ? [...slider_data.data].sort((a, b) => a.sort_order - b.sort_order)
     : [];

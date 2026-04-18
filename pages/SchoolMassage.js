@@ -17,7 +17,7 @@ const SchoolMassage = ({ header_data }) => {
  
 
         if (response?.data?.data?.length > 0) {
-            console.log(response.data);
+            // console.log(response.data);
             setdata(response.data.data[0]) 
             // response?.data?.data[0].map((data1,i)=>{
             //     setdata(data1) 
@@ -54,7 +54,7 @@ text-base px-10 md:px-16 py-10 text-gray-600 bg-[#cbdcf8]"
           <span className="text-4xl">{data?.heading||"School Message"}</span>
           <p className="mt-5"> 
           {data?.body||`We believe that every child is Unique and has a different learning
-          approach. We, at Rose Mary, observe the talents and qualities and
+          approach. We, at UK Convent, observe the talents and qualities and
           focus on them for educating the child. We facilitate the students to
           become spiritually deep rooted, morally upright & emotionally mature.
           We equip students with a sound value system to live as good human
