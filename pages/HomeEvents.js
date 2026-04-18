@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
 import { base_url, school_name } from '../SimpleState/auth'
-import { RiArrowLeftDoubleFill ,RiArrowRightDoubleFill} from "react-icons/ri";
+
 const HomeEvents = () => {
     const [value, onChange] = useState(new Date()); //this is for Calendar
     const [data, setdata] = useState("")
@@ -15,11 +15,10 @@ const HomeEvents = () => {
     const get_school_name = school_name.use()
 
     const slides = [
-        { title: "/images/image1.jpg ", description: 'Vivek Singh' ,percent:"89"},
-        { title: " /images/image2.jpg", description: 'Aditya Jain' ,percent:"87"},
+        // { title: "/images/image1.jpg ", description: 'Name-1' },
+        // { title: " /images/image2.jpg", description: 'Name-2' },
     ];
 
-      const carouselRef = useRef();
 
     const filteredData = [
         { id: 2, created_on: "2020-12-15T05:19:39+00:00", eventdate: "2020-12-23", title: "Books will be available on the specific date." },
@@ -75,12 +74,9 @@ const HomeEvents = () => {
                                     <div className="px-2 py-5 bg-purple-100 w-[75%]">{ei?.title}</div>
                                 </div>))
                                 ||
-                                filteredData.map((eii, i) => (
-                                    <div className="flex mb-2" key={i}>
-                                        <div className="bg-indigo-900 text-[white] w-[25%]  py-5 px-2 ">{eii?.eventdate}</div>
-                                        <div className="px-2 py-5 bg-purple-100 w-[75%]">{eii?.title}</div>
-                                    </div>
-                                ))
+                                (<div className="text-center py-10 text-gray-600 font-semibold">
+                                    No Upcoming Events
+                                </div>)
                             }
 
                         </div>
@@ -101,64 +97,74 @@ const HomeEvents = () => {
                 </div>
 
             </div>
-            <div className="mx-3 w-full">
-                <h1 className="py-2 text-center text-[white] "><b> Topper (2019-2020)</b></h1>
+            <div className="mx-3">
+                <h1 className="py-2 text-center text-[white] "><b> Topper (2025-2026)</b></h1>
 
-                <Carousel  ref={carouselRef} showThumbs={false} autoPlay={true} infiniteLoop={true} showArrows={false} >
-                    {
-                        data?.data?.data.map((item, index) => {
-                            return <div className="carousel-inner" role="listbox" key={index} >
-                                <div className='carousel ' role="listbox" style={{ marginTop: "15px" }}>
-                                    <img
-                                        src={item?.photo?.data?.full_url?.replace('http://', 'https://')}
-                                        style={{ height: "250px", width: "100%", border: "1px solid #ccc" }}
-                                        alt="sorry_no_img"
-                                    />
-                                     <h4 className="p-0 py-3 m-0 text-[white]"
-                                        style={{ border: "1px solid #ccc" }}>{item.name}
-                                        <br />
-                                        <span>{item.percent}%</span>
-                                    </h4>
-                                </div>
+                <div style={{ position: "relative" }}>
+                    <Carousel
+                        showThumbs={false}
+                        autoPlay={true}
+                        infiniteLoop={true}
+                        showArrows={false}
+                        showStatus={false}
+                    >
+                        {data?.data?.data.map((item, index) => (
+                            <div key={index}>
+                                <img
+                                    src={item?.photo?.data?.full_url?.replace('http://', 'https://')}
+                                    style={{ height: "300px", width: "100%" }}
+                                    alt=""
+                                />
+                                <h4 className="text-white">{item.name}</h4>
                             </div>
-                        })
-                        ||
-                        slides.map((slide, index) => {
-                            return <div className="carousel-inner" role="listbox" key={index} >
-                                <div className='carousel ' role="listbox" style={{ marginTop: "15px" }}>
-                                    <img
-                                        src={slide.title}
-                                        style={{ height: "250px", width: "100%" }}
-                                        alt="sorry_no_img"
-                                    />
-                                    <h4 className="p-0 py-3 m-0 text-white" style={{ border: "1px solid #ccc" }}>{slide.description}
-                                        <br />
-                                        <span>{slide.percent}%</span>
-                                    </h4>
-                                    
-                                </div>
-                            </div>
-                        })
-                    }
+                        ))}
+                    </Carousel>
 
-                </Carousel>
-                <div className='p-1 flex justify-between'>
-                <button
-                        onClick={() => carouselRef.current?.decrement()}
-                        className="  bg-white text-gray px-2 py-1 rounded"
+                    {/* LEFT ARROW */}
+                    <button
+                        onClick={() => document.querySelector('.carousel .control-prev')?.click()}
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "5px",
+                            transform: "translateY(-50%)",
+                            // zIndex: 999,
+                            background: "black",
+                            color: "white",
+                            border: "none",
+                            padding: "10px",
+                            cursor: "pointer"
+                        }}
                     >
-                        <RiArrowLeftDoubleFill />
-                </button>
-                <button
-                        onClick={() => carouselRef.current?.increment()}
-                        className="  bg-white text-gray px-2 py-1 rounded"
+                        ‹
+                    </button>
+
+                    {/* RIGHT ARROW */}
+                    <button
+                        onClick={() => document.querySelector('.carousel .control-next')?.click()}
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            right: "5px",
+                            transform: "translateY(-50%)",
+                            // zIndex: 999,
+                            background: "black",
+                            color: "white",
+                            border: "none",
+                            padding: "10px",
+                            cursor: "pointer"
+                        }}
                     >
-                        <RiArrowRightDoubleFill />
-                </button>
+                        ›
+                    </button>
                 </div>
+
+
             </div>
         </div>
     )
 }
 
 export default HomeEvents
+
+

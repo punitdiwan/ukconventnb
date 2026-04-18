@@ -18,7 +18,7 @@ const HomePage = () => {
           <div className="w-5/5 md:w-6/12 ">
             <h2 >School Message</h2>
             We believe that every child is Unique and has a different learning
-            approach. We, at Rose Mary, observe the talents and qualities and
+            approach. We, at UK Convent, observe the talents and qualities and
             focus on them for educating the child. We facilitate the students to
             become spiritually deep rooted, morally upright & emotionally mature.
             We equip students with a sound value system to live as good human
