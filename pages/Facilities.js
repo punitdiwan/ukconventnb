@@ -44,7 +44,7 @@ const Facilities =({ data_header })=>  {
             Practical work plays an important role in understanding the basic
             principles of science. Biology is an interesting field of science
             where scientific facts are better understood by performing
-            practicals in a systematic way. Biology laboratory of UK Convent Co-Ed Hr.
+            practicals in a systematic way. Biology laboratory of Rose Mary Hr.
             Sec. School is well furnished & is catering to the doing & learning
             part of science. Children are testing and verifying the scientific
             facts wonderfully well in the lab. Our Bio Lab is well equipped with
@@ -60,7 +60,7 @@ const Facilities =({ data_header })=>  {
             <img src="/images/star.gif  " />
           </h2>
           <p>
-            The chemistry lab in UK Convent Co-Ed Hr. Sec. School is well equipped with
+            The chemistry lab in Rose Mary Hr. Sec. School is well equipped with
             chemicals & glass wares. We use demonstration Technique which is
             capable of showing each & every aspect of chemistry practical. The
             proper guidance of the concern teacher of availability of all the
@@ -78,8 +78,8 @@ const Facilities =({ data_header })=>  {
             Physics is such an interesting subject that every student has his
             own way of talking about. Many of the ideas in Physics are lost
             sight of, because many of them concentrate mostly on the theoretical
-            aspects of the subject. Physics laboratory of UK Convent Co-Ed Hr.
-            Sec. School is well equipped according to the CBSE norms. The lab can
+            aspects of the subject. Physics laboratory of Rose Mary Hr. Sec.
+            School is well equipped according to the CBSE norms. The lab can
             easily accommodate 60 students at a time during the conduction of
             practical. The practicals that are conducted in the lab are exactly
             in accordance with the CBSE curriculum. During the conduction of the
@@ -128,6 +128,6 @@ export async function getStaticProps(context) {
   }
   return {
     props: { data_header },
-    revalidate: 86400, // will be passed to the page component as props
+    revalidate: 86400, // 24 hours - reduces serverless invocations on Vercel Pro
   }
 }

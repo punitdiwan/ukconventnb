@@ -1,56 +1,48 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import React from "react";
-import { IoIosArrowForward ,IoIosArrowBack} from "react-icons/io";
-
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 const Slider = ({ slider_data }) => {
 
   const slides = [
-    { title: "/images/is15.jpg ", description: 'Lorem ipsum' },
-    { title: "/images/sd2.jpg", description: 'Lorem ipsum' },
+    { title: "/images/is15.jpg", description: "Lorem ipsum" },
+    { title: "/images/sd2.jpg", description: "Lorem ipsum" },
   ];
-// console.log("slider_data",slider_data)
   const sortedSlides = slider_data?.data
     ? [...slider_data.data].sort((a, b) => a.sort_order - b.sort_order)
     : [];
-
   return (
     <div className="relative">
       <Carousel
         showThumbs={false}
         autoPlay={true}
         infiniteLoop={true}
-        showIndicators={true}
+        interval={3000}
         showStatus={false}
-        swipeable={true}
-        emulateTouch={true}
+        className="mt-14"
 
-       
-        renderArrowPrev={(onClickHandler, hasPrev) =>
+        renderArrowPrev={(onClickHandler, hasPrev, label) =>
           hasPrev && (
             <button
               type="button"
               onClick={onClickHandler}
-              className="absolute left-4 top-1/2 -translate-y-1/2 
-                         bg-white/30 hover:bg-white text-black 
-                         px-4 py-4 rounded-full z-20 mt-10"
+              title={label}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 text-white p-3 rounded-full hover:bg-white hover:text-black transition"
             >
-                   <IoIosArrowBack size={26}/>
+              <IoIosArrowBack size={26} />
             </button>
           )
         }
 
-      
-        renderArrowNext={(onClickHandler, hasNext) =>
+        renderArrowNext={(onClickHandler, hasNext, label) =>
           hasNext && (
             <button
               type="button"
               onClick={onClickHandler}
-              className="absolute right-4 top-1/2 -translate-y-1/2 
-                         bg-white/30 hover:bg-white text-black 
-                         px-4 py-4 rounded-full z-20 mt-10"
+              title={label}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 text-white p-3 rounded-full hover:bg-white hover:text-black transition"
             >
-             <IoIosArrowForward size={26}/>
+              <IoIosArrowForward size={26} />
             </button>
           )
         }
@@ -59,9 +51,9 @@ const Slider = ({ slider_data }) => {
           ? sortedSlides.map((item, index) => (
             <div key={index}>
               <img
-                src={item?.image?.data?.full_url?.replace('http://', 'https://')}
-                className="w-full h-[230px] md:h-[400px] lg:h-[650px] object-cover bg-black"
-                alt="slider"
+                src={item?.image?.data?.full_url?.replace("http://", "https://")}
+                className="relative w-full h-[300px] md:h-[500px] lg:h-[640px]"
+                alt="slider_img"
               />
             </div>
           ))
@@ -69,8 +61,8 @@ const Slider = ({ slider_data }) => {
             <div key={index}>
               <img
                 src={slide.title}
-                className="w-full h-[230px] md:h-[400px] lg:h-[500px] object-cover bg-black"
-                alt="slider"
+                alt="slider_img"
+                className="relative w-full h-[300px] md:h-[500px] lg:h-[640px]"
               />
             </div>
           ))}
