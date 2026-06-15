@@ -5,7 +5,7 @@ import Header from './Header'
 const Layout = ({ children, header_data }) => {
   useEffect(() => {
     const schoolData = header_data?.data?.[0]
-    const title = schoolData?.title || 'Rose Mary School'
+    const title = schoolData?.title1 || 'U.K.Convent Co-Ed Hr.Sec. School NEELBAD'
     const iconUrl = schoolData?.logo?.data?.full_url?.replace('http://', 'https://') || '/logo.png'
 
     document.title = title
